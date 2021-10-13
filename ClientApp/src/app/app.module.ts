@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
