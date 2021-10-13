@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+import { Component, OnInit } from '@angular/core';
 
-namespace Gruppeoppgave2_WebApp.ClientApp.src.app.login
-{
-    public class login
-    {
-    }
+@Component({
+  selector: 'app-root',
+  templateUrl: './login.component.html'
+})
+
+export class AppComponent {
+  title: 'login';
+
+  ngOnInit() {
+
+  }
 }
