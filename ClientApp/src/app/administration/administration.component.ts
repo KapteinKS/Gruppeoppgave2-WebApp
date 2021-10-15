@@ -12,6 +12,10 @@ export class AdministrationComponent {
   public departures: Array<departure>;
 
   constructor(private _http: HttpClient) {
+    
+  }
+
+  getAll() {
     this._http.get<departure[]>("api/Departure/")
       .subscribe(data => {
         this.departures = data;
@@ -19,5 +23,14 @@ export class AdministrationComponent {
         error => alert(error),
         () => console.log("Get call finished")
       );
-  }
+  };
+
+  updateDeparture(dep: departure) {
+    this._http.put("api/Departure/", dep)
+      .subscribe(data => {
+        this.getAll();
+      },
+        error => alert(error)
+      );
+  };
 }

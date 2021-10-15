@@ -1,8 +1,45 @@
 <div id="route-administration">
   <table id="departures">
     <thead>Avganger</thead>
+    <tr>
+      <th>ID</th>
+      <th>Avgang</th>
+      <th>Ankomst</th>
+      <th>Avgangstid</th>
+      <th>Ankomsttid</th>
+      <th>Pris</th>
+    </tr>
     <tr *ngFor="let dep of departures">
-      {{dep.id}} : {{dep.dep_location}} {{dep.arr_location}} {{dep.dep_time}} {{dep.arr_time}} {{dep.price}}
+      <td>{{dep.id}}</td>
+      <td>{{dep.dep_location}}</td>
+      <td>{{dep.arr_location}}</td>
+      <td>{{dep.dep_time}}</td>
+      <td>{{dep.arr_time}}</td>
+      <td>{{dep.price}}</td>
+      <td><button class="btn btn-primary"(click)="updateDeparture(dep)">Endre</button></td>
+      <td><button class="btn btn-danger" (click)="deleteDeparture(dep)">Slett</button></td>
     </tr>
   </table>
+</div>
+
+<!--Div for registration/update of routes, might make into own component-->
+<div id="route-registration">
+  <form>
+    <label for="departure_loc">Avgang</label>
+    <input id="departure_loc" />
+
+    <label for="arrival_loc">Ankomst</label>
+    <input id="arrival_loc" />
+
+    <label for="departure_time">Avgangstid</label>
+    <input id="departure_time" />
+
+    <label for="arrival_time">Ankomsttid</label>
+    <input id="arrival_time" />
+
+    <label for="route_price">Pris</label>
+    <input type="number" min="100" id="route_price" />
+
+    <button class="btn btn-primary" (click)="registerRoute()">Registrer ny</button>
+  </form>
 </div>
