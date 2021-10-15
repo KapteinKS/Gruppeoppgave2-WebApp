@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'router-outlet',
   templateUrl: './login.component.html'
 })
 
-export class AppComponent {
+export class LoginComponent {
   title: 'login';
 
   ngOnInit() {

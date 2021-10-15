@@ -3,12 +3,12 @@ import { departure } from './departure';
 import { HttpClient } from '@angular/common/http'
 
 @Component({
-  selector: 'app-root',
+  selector: 'router-outlet',
   templateUrl: './administration.component.html'
 })
 
 //Code monkey see, code monkey do
-export class AppComponent {
+export class AdministrationComponent {
   public departures: Array<departure>;
 
   constructor(private _http: HttpClient) {
