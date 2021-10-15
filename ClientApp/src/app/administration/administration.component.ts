@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './administraion.component.html'
+  templateUrl: './administration.component.html'
 })
 
 export class AppComponent {
