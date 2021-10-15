@@ -138,5 +138,23 @@ namespace Gruppeoppgave1_WebApp.DAL
                 return null;
             }
         }
+
+        public async Task UpdateDeparture(Departure departure)
+        {
+            var toUpdate = await _db.Departures.FindAsync(departure.ID);
+            toUpdate.Dep_location = departure.Dep_location;
+            toUpdate.Arr_location = departure.Arr_location;
+            toUpdate.Dep_time = departure.Dep_time;
+            toUpdate.Arr_time = departure.Arr_time;
+            toUpdate.Price = departure.Price;
+            await _db.SaveChangesAsync();
+        }
+
+        public async Task DeleteDeparture(Departure departure)
+        {
+            var toDelete = await _db.Departures.FindAsync(departure.ID);
+            _db.Departures.Remove(toDelete);
+            await _db.SaveChangesAsync();
+        }
     }
 }
