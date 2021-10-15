@@ -7,7 +7,7 @@ using Gruppeoppgave1_WebApp.DAL;
 using Gruppeoppgave1_WebApp.Model;
 using Microsoft.Extensions.Logging;
 
-namespace Gruppeoppgave1_WebApp.Controllers
+namespace Gruppeoppgave2_WebApp.Controllers
 {
     [Route("[controller]/[action]")]
     public class TicketController : ControllerBase

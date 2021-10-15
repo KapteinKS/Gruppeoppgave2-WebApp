@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Collections.Generic;
 using System.Linq;
-using Gruppeoppgave1_WebApp.Model;
+using Gruppeoppgave2_WebApp.Model;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace Gruppeoppgave1_WebApp.DAL
+namespace Gruppeoppgave2_WebApp.DAL
 {
     public class TicketRepository : ITicketRepository
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gruppeoppgave1_WebApp.DAL
+namespace Gruppeoppgave2_WebApp.DAL
 {
     public class Customer
     {

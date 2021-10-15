@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gruppeoppgave1_WebApp.Model
+namespace Gruppeoppgave2_WebApp.Model
 {
     public class Ticket
     {
