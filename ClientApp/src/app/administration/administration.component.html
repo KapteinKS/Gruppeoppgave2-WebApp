@@ -1,1 +1,8 @@
-<h1>Administration</h1>
+<div id="route-administration">
+  <table id="departures">
+    <thead>Avganger</thead>
+    <tr *ngFor="let dep of departures">
+      {{dep.id}} : {{dep.dep_location}} {{dep.arr_location}} {{dep.dep_time}} {{dep.arr_time}} {{dep.price}}
+    </tr>
+  </table>
+</div>

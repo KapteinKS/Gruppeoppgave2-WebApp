@@ -11,5 +11,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         Task<bool> OrderTicket(Ticket orderedTicket);
         Task<List<Ticket>> GetTickets();
         Task<List<Departure>> GetDepartures();
+        Task UpdateDeparture(Departure departure);
+        Task DeleteDeparture(Departure departure);
     }
 }
