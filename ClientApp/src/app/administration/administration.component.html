@@ -1,8 +1,23 @@
 <div id="route-administration">
   <table id="departures">
     <thead>Avganger</thead>
+    <tr>
+      <th>ID</th>
+      <th>Avgang</th>
+      <th>Ankomst</th>
+      <th>Avgangstid</th>
+      <th>Ankomsttid</th>
+      <th>Pris</th>
+    </tr>
     <tr *ngFor="let dep of departures">
-      {{dep.id}} : {{dep.dep_location}} {{dep.arr_location}} {{dep.dep_time}} {{dep.arr_time}} {{dep.price}}
+      <td>{{dep.id}}</td>
+      <td>{{dep.dep_location}}</td>
+      <td>{{dep.arr_location}}</td>
+      <td>{{dep.dep_time}}</td>
+      <td>{{dep.arr_time}}</td>
+      <td>{{dep.price}}</td>
+      <td><button class="btn btn-primary"(click)="updateDeparture(dep)">Endre</button></td>
+      <td><button class="btn btn-danger" (click)="deleteDeparture(dep)">Slett</button></td>
     </tr>
   </table>
 </div>
