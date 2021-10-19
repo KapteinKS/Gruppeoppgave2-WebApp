@@ -21,3 +21,9 @@ code {
 h1{
 
 }
+
+.nav{
+    background-color: grey;
+    height: 100px;
+    width: auto;
+}
