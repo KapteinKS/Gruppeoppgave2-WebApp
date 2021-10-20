@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'router-outlet',
+  selector: 'app-root',
   templateUrl: './login.component.html'
 })
 
