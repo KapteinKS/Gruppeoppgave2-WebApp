@@ -5,7 +5,7 @@ import { register } from 'ts-node';
 
 
 @Component({
-  selector: 'app-root',
+  //selector: 'router-outlet',
   templateUrl: './administration.component.html'
 })
 
