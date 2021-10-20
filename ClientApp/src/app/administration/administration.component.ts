@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'router-outlet',
+  //selector: 'router-outlet',
   templateUrl: './administration.component.html'
 })
 
