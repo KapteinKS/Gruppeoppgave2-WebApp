@@ -22,8 +22,19 @@ h1{
 
 }
 
-.nav{
-    background-color: grey;
-    height: 100px;
-    width: auto;
+.nav {
+  background-color: #2286C3;
+  height: 100px;
+  width: auto;
+  margin: 20px 10px 0px 10px;
+}
+
+.nav-button {
+  background-color: #06BA63;
+  width: 150px;
+  height: 60px;
+  font-size: 20px;
+  margin: 0% 10px 50% 10px;
+  border-color: #2B303A;
+  border-radius: 10px;
 }
