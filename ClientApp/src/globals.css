@@ -3,11 +3,21 @@
     padding: 0;
 }
 
+#page-wrapper{
+    width: 80%;
+    margin: auto;
+}
+
+#content-wrapper{
+    margin: 0px 20px 0px 20px;
+}
+
 .nav {
   background-color: #2286C3;
   height: 100px;
   width: auto;
-  margin: 20px 20px 0px 20px;
+  /*margin: 20px 20px 0px 20px;*/
+  border-radius: 0px 0px 10px 10px;
 }
 
 .nav-button {
@@ -16,7 +26,7 @@
   height: 60px;
   font-size: 20px;
   margin: 20px 0px 20px 20px;
-  border-color: #2B303A;
+  border: 1px solid #2B303A;
   border-radius: 10px;
 }
 
