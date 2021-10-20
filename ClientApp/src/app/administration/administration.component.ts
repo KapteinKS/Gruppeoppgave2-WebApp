@@ -5,6 +5,7 @@ import { register } from 'ts-node';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Modal } from './modal';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'router-outlet',
@@ -17,8 +18,10 @@ export class AdministrationComponent {
   depToDelete: string;
   dep_form: FormGroup;
 
-  constructor(private _http: HttpClient, private modalService: NgbModal) {
-    
+  constructor(private _http: HttpClient, private modalService: NgbModal, private router: Router) {}
+
+  ngOnInit() {
+    this.getAll();
   }
 
   getAll() {
@@ -62,20 +65,7 @@ export class AdministrationComponent {
             error => console.log(error)
           );
       }
-      //TODO navigate to home
+      this.router.navigate(['/amdinistration'])
     });
-  }
-
-  registerRoute() {
-    const dep = new departure();
-
-    dep.dep_location = this.dep_form.value.departure_loc;
-    dep.arr_location = this.dep_form.value.arrival_loc;
-    dep.dep_time = this.dep_form.value.departure_time;
-    dep.arr_time = this.dep_form.value.arrival_time;
-    dep.price = this.dep_form.value.route_price;
-
-    this._http.post("api/departure", dep)
-      .subscribe
   }
 }
