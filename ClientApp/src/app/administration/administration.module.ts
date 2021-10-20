@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AdministrationComponent } from './administration.component';
 import { Modal } from './modal';
 
+
 @NgModule({
   declarations: [
     AdministrationComponent,
