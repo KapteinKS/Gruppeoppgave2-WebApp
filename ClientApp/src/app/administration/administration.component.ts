@@ -3,7 +3,7 @@ import { departure } from './departure';
 import { HttpClient } from '@angular/common/http'
 
 @Component({
-  selector: 'app-root',
+  //selector: 'router-outlet',
   templateUrl: './administration.component.html'
 })
 
