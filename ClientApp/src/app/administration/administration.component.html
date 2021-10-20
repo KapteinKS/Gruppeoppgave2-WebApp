@@ -20,6 +20,7 @@
       <td><button class="btn btn-danger" (click)="deleteDeparture(dep)">Slett</button></td>
     </tr>
   </table>
+  <button class="btn btn-primary" (click)="registerDeparture()">Registrer strekning</button>
 </div>
 
 <!--Div for registration/update of routes, might make into own component-->
@@ -32,10 +33,10 @@
     <input id="arrival_loc" />
 
     <label for="departure_time">Avgangstid</label>
-    <input id="departure_time" />
+    <input id="departure_time" type="time"/>
 
     <label for="arrival_time">Ankomsttid</label>
-    <input id="arrival_time" />
+    <input id="arrival_time" type="time"/>
 
     <label for="route_price">Pris</label>
     <input type="number" min="100" id="route_price" />

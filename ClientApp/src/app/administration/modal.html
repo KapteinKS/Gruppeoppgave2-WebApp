@@ -1,0 +1,12 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Er du sikker på at du vil slette</h4>
+  </div>
+  <div class="modal-body">
+    {{route}}?
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-default" (click)="modal.close('cancel')">Avbryt</button>
+    <button class="btn btn-danger" (click)="modal.close('delete')">Slett</button>
+  </div>
+</div>

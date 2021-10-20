@@ -39,21 +39,75 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
         }
 
-        public async Task UpdateDeparture(Departure departure)
+        public async Task<Departure> GetDeparture(int id)
         {
-            var toUpdate = await _db.Departures.FindAsync(departure.ID);
-            toUpdate.Dep_location = departure.Dep_location;
-            toUpdate.Arr_location = departure.Arr_location;
-            toUpdate.Dep_time = departure.Dep_time;
-            toUpdate.Arr_time = departure.Arr_time;
-            toUpdate.Price = departure.Price;
-            await _db.SaveChangesAsync();
+            var departure = await _db.Departures.FindAsync(id);
+
+            return new Departure
+            {
+                ID = departure.DepID,
+                Dep_location = departure.Dep_location,
+                Arr_location = departure.Arr_location,
+                Dep_time = departure.Dep_time,
+                Arr_time = departure.Arr_time,
+                Price = departure.Price
+            };
         }
-        public async Task DeleteDeparture(Departure departure)
+
+        public async Task<Boolean> UpdateDeparture(Departure departure)
         {
-            var toDelete = await _db.Departures.FindAsync(departure.ID);
-            _db.Departures.Remove(toDelete);
-            await _db.SaveChangesAsync();
+            try
+            {
+                var toUpdate = await _db.Departures.FindAsync(departure.ID);
+                toUpdate.Dep_location = departure.Dep_location;
+                toUpdate.Arr_location = departure.Arr_location;
+                toUpdate.Dep_time = departure.Dep_time;
+                toUpdate.Arr_time = departure.Arr_time;
+                toUpdate.Price = departure.Price;
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<Boolean> DeleteDeparture(int id)
+        {
+            try
+            {
+                var toDelete = await _db.Departures.FindAsync(id);
+                _db.Departures.Remove(toDelete);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<Boolean> registerRoute(Departure departure)
+        {
+            try
+            {
+                var dep = new Departures
+                {
+                    Dep_location = departure.Dep_location,
+                    Arr_location = departure.Arr_location,
+                    Dep_time = departure.Dep_time,
+                    Arr_time = departure.Arr_time,
+                    Price = departure.Price
+                };
+                _db.Departures.Add(dep);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

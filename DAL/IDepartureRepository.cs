@@ -7,7 +7,9 @@ namespace Gruppeoppgave2_WebApp.DAL
     public interface IDepartureRepository
     {
         Task<List<Departure>> GetDepartures();
-        Task UpdateDeparture(Departure departure);
-        Task DeleteDeparture(Departure departure);
+        Task<Departure> GetDeparture(int id);
+        Task<bool> UpdateDeparture(Departure departure);
+        Task<bool> DeleteDeparture(int id);
+        Task<bool> registerRoute(Departure departure);
     }
 }
