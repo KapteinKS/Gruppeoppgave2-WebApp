@@ -2,16 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-<<<<<<< Updated upstream
-import { AppComponent } from '../app.component';
-=======
 import { AdministrationComponent } from './administration.component';
 import { Modal } from './modal';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
-    AdministrationComponent
+    AdministrationComponent,
+    Modal
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -19,6 +16,6 @@ import { Modal } from './modal';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AdministrationComponent]
+  bootstrap: [AdministrationComponent, Modal]
 })
 export class AppModule {}

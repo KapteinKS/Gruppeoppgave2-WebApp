@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { departure } from './departure';
 import { HttpClient } from '@angular/common/http'
 import { register } from 'ts-node';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Modal } from './modal';
 
 
 @Component({
-  //selector: 'router-outlet',
+  selector: 'router-outlet',
   templateUrl: './administration.component.html'
 })
 
@@ -14,7 +16,7 @@ export class AdministrationComponent {
   public departures: Array<departure>;
     depToDelete: string;
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient, private modalService: NgbModal) {
     
   }
 
@@ -49,9 +51,12 @@ export class AdministrationComponent {
   };
 
   showModalDelete(id: number) {
-    const modalRef = this.modalService.open(Modal);
+    const modalRef = this.modalService.open(Modal, {
+      backdrop: 'static',
+      keyboard: false
+    });
 
-    modalRef.componentInstance.name = this.depToDelete;
+    modalRef.componentInstance.route = this.depToDelete;
 
     modalRef.result.then(retur => {
       console.log("Modal closed with " + retur);
@@ -67,6 +72,8 @@ export class AdministrationComponent {
     });
   }
 
-  registerDeoarture
+  registerDeparture(departure: departure) {
+    this._http.post("api/departure/" + departure)
+      .subscribe
+  }
 }
-
