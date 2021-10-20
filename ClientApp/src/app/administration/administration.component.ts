@@ -7,7 +7,7 @@ import { Modal } from './modal';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'router-outlet',
+  //selector: 'router-outlet',
   templateUrl: './administration.component.html'
 })
 
