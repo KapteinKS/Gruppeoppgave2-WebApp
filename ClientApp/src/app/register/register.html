@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="col-md-4">
+    <form [formGroup]="dep_form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Avgang</label>
+        <input class="form-control" formControlName="departure_loc" />
+      </div>
+
+      <dic class="form-group">
+        <label>Ankomst</label>
+        <input class="form-control" formControlName="arrival_loc" />
+      </dic>
+
+      <div class="form-group">
+        <label>Avgangstid</label>
+        <input class="form-control" formControlName="departure_time" type="time" />
+      </div>
+
+      <div class="form-group">
+        <label>Ankomsttid</label>
+        <input class="form-control" formControlName="arrival_time" type="time" />
+      </div>
+
+      <div class="form-group">
+        <label>Pris</label>
+        <input class="form-control" type="number" min="100" formControlName="route_price" />
+      </div>
+
+      <button class="btn btn-primary" (click)="registerRoute()">Registrer ny</button>
+    </form>
+  </div>
+</div>

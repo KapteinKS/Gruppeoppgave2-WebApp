@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { register } from 'ts-node';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Modal } from './modal';
-
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'router-outlet',
@@ -14,7 +14,8 @@ import { Modal } from './modal';
 //Code monkey see, code monkey do
 export class AdministrationComponent {
   public departures: Array<departure>;
-    depToDelete: string;
+  depToDelete: string;
+  dep_form: FormGroup;
 
   constructor(private _http: HttpClient, private modalService: NgbModal) {
     
@@ -30,14 +31,7 @@ export class AdministrationComponent {
       );
   };
 
-  updateDeparture(id: number) {
-    this._http.put("api/Departure/", id)
-      .subscribe(data => {
-        this.getAll();
-      },
-        error => alert(error)
-      );
-  };
+  
 
   deleteDeparture(id: number) {
     this._http.get<departure>("api/Departure/" + id)
@@ -72,8 +66,16 @@ export class AdministrationComponent {
     });
   }
 
-  registerDeparture(departure: departure) {
-    this._http.post("api/departure/" + departure)
+  registerRoute() {
+    const dep = new departure();
+
+    dep.dep_location = this.dep_form.value.departure_loc;
+    dep.arr_location = this.dep_form.value.arrival_loc;
+    dep.dep_time = this.dep_form.value.departure_time;
+    dep.arr_time = this.dep_form.value.arrival_time;
+    dep.price = this.dep_form.value.route_price;
+
+    this._http.post("api/departure", dep)
       .subscribe
   }
 }

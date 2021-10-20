@@ -42,7 +42,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
             return Ok(ok);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteDeparture(int id)
         {
             Boolean ok = await _db.DeleteDeparture(id);
