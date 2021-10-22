@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AdministrationComponent } from './administration.component';
+import { AdministrationComponent } from './administration';
 import { Modal } from './modal';
 
 

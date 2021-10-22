@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { departure } from './departure';
+import { departure } from '../departure';
 import { HttpClient } from '@angular/common/http'
 import { register } from 'ts-node';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
 
 @Component({
   //selector: 'router-outlet',
-  templateUrl: './administration.component.html'
+  templateUrl: './administration.html'
 })
 
 //Code monkey see, code monkey do
@@ -29,7 +29,7 @@ export class AdministrationComponent {
       .subscribe(data => {
         this.departures = data;
       },
-        error => alert(error),
+        error => alert("Noe gikk galt"),
         () => console.log("Get call finished")
       );
   };

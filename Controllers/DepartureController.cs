@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Gruppeoppgave2_WebApp.DAL;
 using Gruppeoppgave2_WebApp.Model;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace Gruppeoppgave2_WebApp.Controllers
 { 
+    [ApiController]
     [Route("api/[controller]")]
     public class DepartureController : ControllerBase
     {
@@ -19,6 +21,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
         {
             this.logger = logger;
             _db = db;
+            Debug.WriteLine("Server running");
         }
 
         [HttpGet]
@@ -52,8 +55,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [HttpPost]
         public async Task<ActionResult> RegisterRoute(Model.Departure departure)
         {
+            System.Diagnostics.Trace.WriteLine("Prøver å lagre rute");
+            Debug.WriteLine("Prøver å lagre rute");
             Boolean ok = await _db.registerRoute(departure);
-            return Ok(ok);
+            return Ok();
         }
     }
 }

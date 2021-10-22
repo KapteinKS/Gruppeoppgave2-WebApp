@@ -5,6 +5,7 @@ using Gruppeoppgave2_WebApp.Model;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
@@ -92,6 +93,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         {
             try
             {
+                Debug.WriteLine("Begynner å lagre rute");
                 var dep = new Departures
                 {
                     Dep_location = departure.Dep_location,
@@ -100,8 +102,10 @@ namespace Gruppeoppgave2_WebApp.DAL
                     Arr_time = departure.Arr_time,
                     Price = departure.Price
                 };
+                Debug.WriteLine("Kaller DB");
                 _db.Departures.Add(dep);
                 await _db.SaveChangesAsync();
+                Debug.WriteLine("Rute lagret");
                 return true;
             }
             catch
