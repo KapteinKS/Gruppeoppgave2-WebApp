@@ -9,8 +9,6 @@ namespace Gruppeoppgave2_WebApp.Model
     {
         private int ID { get; set; }
 
-        private bool Admin { get; set; }
-
         private string Username { get; set; }
 
         private string Password { get; set; }
