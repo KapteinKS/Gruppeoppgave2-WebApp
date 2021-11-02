@@ -8,11 +8,11 @@ namespace Gruppeoppgave2_WebApp.Model
 {
     public class User
     {
-        private int UserID { get; set; }
+        public int UserID { get; set; }
 
         //[RegularExpression()]
-        private string Username { get; set; }
+        public string Username { get; set; }
         //[RegularExpression()]
-        private string Password { get; set; }
+        public string Password { get; set; }
     }
 }

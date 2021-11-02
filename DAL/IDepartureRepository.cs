@@ -6,7 +6,7 @@ namespace Gruppeoppgave2_WebApp.DAL
 {
     public interface IDepartureRepository
     {
-        Task<List<User>> GetUsers();
+        Task<List<Model.User>> GetUsers();
         Task<List<Departure>> GetDepartures();
         Task<Departure> GetDeparture(int id);
         Task<bool> UpdateDeparture(Departure departure);

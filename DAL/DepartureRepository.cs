@@ -19,11 +19,11 @@ namespace Gruppeoppgave2_WebApp.DAL
         }
 
 
-        public async Task<List<User>> GetUsers()
+        public async Task<List<Model.User>> GetUsers()
         {
             try
             {
-                List<User> users = await _db.Users.Select(u => new User
+                List<Model.User> users = await _db.Users.Select(u => new Model.User
                 {
                     UserID = u.UserID,
                     Username = u.Username,
