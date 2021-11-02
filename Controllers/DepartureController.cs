@@ -64,6 +64,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
                     logger.LogInformation("Changes could not be made");
                     return NotFound();
                 }
+                logger.LogInformation("Departure updated");
                 return Ok(ok);
             }
             logger.LogInformation("ModelState invalid");
@@ -79,6 +80,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
                 logger.LogInformation("Departure not deleted");
                 return NotFound();
             }
+            logger.LogInformation("Departure deleted");
             return Ok(ok);
         }
 
@@ -93,6 +95,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
                     logger.LogInformation("Could not save departure");
                     return BadRequest();
                 }
+                logger.LogInformation("New departure added");
                 return Ok();
             }
             logger.LogInformation("Bad Request");
