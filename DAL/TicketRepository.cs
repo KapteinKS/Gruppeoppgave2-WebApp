@@ -9,11 +9,12 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
+    /*
     [ExcludeFromCodeCoverage]
     public class TicketRepository : ITicketRepository
     {
         private readonly TicketContext _db;
-
+        
         public TicketRepository(TicketContext db)
         {
             _db = db;
@@ -120,11 +121,11 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
         }
 
-        public async Task<List<Departure>> GetDepartures()
+        public async Task<List<Model.Departure>> GetDepartures()
         {
             try
             {
-                List<Departure> departures = await _db.Departures.Select(d => new Departure
+                List<Model.Departure> departures = await _db.Departures.Select(d => new Model.Departure
                 {
                     ID = d.DepID,
                     Dep_location = d.Dep_location,
@@ -141,7 +142,7 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
         }
 
-        public async Task UpdateDeparture(Departure departure)
+        public async Task UpdateDeparture(Model.Departure departure)
         {
             var toUpdate = await _db.Departures.FindAsync(departure.ID);
             toUpdate.Dep_location = departure.Dep_location;
@@ -152,11 +153,12 @@ namespace Gruppeoppgave2_WebApp.DAL
             await _db.SaveChangesAsync();
         }
 
-        public async Task DeleteDeparture(Departure departure)
+        public async Task DeleteDeparture(Model.Departure departure)
         {
             var toDelete = await _db.Departures.FindAsync(departure.ID);
             _db.Departures.Remove(toDelete);
             await _db.SaveChangesAsync();
         }
     }
+    */
 }

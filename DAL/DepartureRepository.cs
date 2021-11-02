@@ -38,11 +38,11 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
         }
 
-        public async Task<List<Departure>> GetDepartures()
+        public async Task<List<Model.Departure>> GetDepartures()
         {
             try
             {
-                List<Departure> departures = await _db.Departures.Select(d => new Departure
+                List<Model.Departure> departures = await _db.Departures.Select(d => new Model.Departure
                 {
                     ID = d.DepID,
                     Dep_location = d.Dep_location,
@@ -59,11 +59,11 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
         }
 
-        public async Task<Departure> GetDeparture(int id)
+        public async Task<Model.Departure> GetDeparture(int id)
         {
             var departure = await _db.Departures.FindAsync(id);
 
-            return new Departure
+            return new Model.Departure
             {
                 ID = departure.DepID,
                 Dep_location = departure.Dep_location,
@@ -74,7 +74,7 @@ namespace Gruppeoppgave2_WebApp.DAL
             };
         }
 
-        public async Task<Boolean> UpdateDeparture(Departure departure)
+        public async Task<Boolean> UpdateDeparture(Model.Departure departure)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
         }
 
-        public async Task<Boolean> registerRoute(Departure departure)
+        public async Task<Boolean> RegisterRoute(Model.Departure departure)
         {
             try
             {

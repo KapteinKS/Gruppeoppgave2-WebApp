@@ -96,7 +96,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
         {
             if(ModelState.IsValid)
             {
-                Boolean ok = await _db.registerRoute(departure);
+                Boolean ok = await _db.RegisterRoute(departure);
                 if (!ok)
                 {
                     logger.LogInformation("Could not save departure");
