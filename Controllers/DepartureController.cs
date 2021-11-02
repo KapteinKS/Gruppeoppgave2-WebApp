@@ -17,6 +17,12 @@ namespace Gruppeoppgave2_WebApp.Controllers
         private readonly IDepartureRepository _db;
         private ILogger<DepartureController> logger;
 
+        //Session variable 
+        /*
+        private const string _loggetInn = "loggetInn";
+        */
+        
+
         public DepartureController(IDepartureRepository db, ILogger<DepartureController> logger)
         {
             this.logger = logger;
@@ -60,5 +66,11 @@ namespace Gruppeoppgave2_WebApp.Controllers
             Boolean ok = await _db.registerRoute(departure);
             return Ok();
         }
+        /*
+        public async Task<ActionResult> LoggInn(Bruker bruker)
+        {
+            
+        }
+        */
     }
 }
