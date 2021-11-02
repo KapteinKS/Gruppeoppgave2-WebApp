@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Update } from './update/update';
 import { Register } from './register/register';
 import { Modal } from './administration/modal'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,11 @@ import { Modal } from './administration/modal'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [Modal]
 })
 export class AppModule { }

@@ -59,6 +59,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         {
             try
             {
+                Debug.WriteLine(departure.ID);
                 var toUpdate = await _db.Departures.FindAsync(departure.ID);
                 toUpdate.Dep_location = departure.Dep_location;
                 toUpdate.Arr_location = departure.Arr_location;

@@ -12,6 +12,7 @@ export class Update {
   dep_form: FormGroup;
 
   form = {
+    id: [""],
     departure_loc: [null],
     arrival_loc: [null],
     departure_time: [null],

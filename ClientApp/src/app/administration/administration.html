@@ -22,8 +22,8 @@
         <td>{{dep.dep_time}} </td>
         <td>{{dep.arr_time}} </td>
         <td>{{dep.price}}</td>
-        <td><button class="btn btn-primary" (click)="updateDeparture(dep)">Endre</button></td>
-        <td><button class="btn btn-danger" [routerLink]="['/update', dep.id]">Slett</button></td>
+        <td><button class="btn btn-primary" [routerLink]="['/update', dep.id]">Endre</button></td>
+        <td><button class="btn btn-danger" (click)="deleteDeparture(dep.id)">Slett</button></td>
       </tr>
   </table>
   <button class="btn btn-primary" routerLink="/register">Registrer ny strekning</button>
