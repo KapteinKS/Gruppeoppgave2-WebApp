@@ -40,6 +40,7 @@ namespace Gruppeoppgave2_WebApp.DAL
 
     public class User
     {
+        [Key]
         public int UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -53,6 +54,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Departures> Departures { get; set; }
+        public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
