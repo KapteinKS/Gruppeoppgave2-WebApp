@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Gruppeoppgave2_WebApp.DAL;
 using Gruppeoppgave2_WebApp.Model;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Gruppeoppgave2_WebApp.Controllers
 {
+    [ExcludeFromCodeCoverage]
     [Route("api/[controller]")]
     public class TicketController : ControllerBase
     {

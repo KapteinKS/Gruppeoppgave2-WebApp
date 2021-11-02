@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
+    [ExcludeFromCodeCoverage]
     public class Customer
     {
         [Key]
@@ -16,6 +18,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         public virtual List<Order> Orders { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class Order
     {
         [Key]
@@ -27,6 +30,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         public int Passengers { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class Departures
     {
         [Key]
@@ -38,6 +42,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         public int Price { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class User
     {
         [Key]
@@ -45,6 +50,8 @@ namespace Gruppeoppgave2_WebApp.DAL
         public string Username { get; set; }
         public string Password { get; set; }
     }
+
+    [ExcludeFromCodeCoverage]
     public class TicketContext : DbContext
     {
         public TicketContext(DbContextOptions<TicketContext> options) : base(options)

@@ -5,9 +5,11 @@ using Gruppeoppgave2_WebApp.Model;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
+    [ExcludeFromCodeCoverage]
     public class TicketRepository : ITicketRepository
     {
         private readonly TicketContext _db;

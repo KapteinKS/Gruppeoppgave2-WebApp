@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
+    [ExcludeFromCodeCoverage]
     public class InitDB
     {
         public static void Initialize(IApplicationBuilder app)
