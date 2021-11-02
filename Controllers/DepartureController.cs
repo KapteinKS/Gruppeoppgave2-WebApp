@@ -30,6 +30,13 @@ namespace Gruppeoppgave2_WebApp.Controllers
         }
 
         [HttpGet]
+        public async Task<ActionResult> GetUsers()
+        {
+            List<Model.User> users = await _db.GetUsers();
+            return Ok(users);
+        }
+
+        [HttpGet]
         public async Task<ActionResult> GetDepartures()
         {
             List<Model.Departure> departures = await _db.GetDepartures();

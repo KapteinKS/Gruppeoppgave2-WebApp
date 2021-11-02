@@ -19,6 +19,25 @@ namespace Gruppeoppgave2_WebApp.DAL
         }
 
 
+        public async Task<List<User>> GetUsers()
+        {
+            try
+            {
+                List<User> users = await _db.Users.Select(u => new User
+                {
+                    UserID = u.UserID,
+                    Username = u.Username,
+                    Password = u.Password
+
+                }).ToListAsync();
+                return users;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public async Task<List<Departure>> GetDepartures()
         {
             try
