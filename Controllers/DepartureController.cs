@@ -27,7 +27,6 @@ namespace Gruppeoppgave2_WebApp.Controllers
         {
             this.logger = logger;
             _db = db;
-            Debug.WriteLine("Server running");
         }
 
         [HttpGet]
@@ -40,31 +39,64 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetDeparture(int id)
         {
-            Model.Departure departure = await _db.GetDeparture(id);
-            return Ok(departure);
+            if (ModelState.IsValid)
+            {
+                Model.Departure departure = await _db.GetDeparture(id);
+                if(departure == null)
+                {
+                    logger.LogInformation("Departure not found");
+                    return NotFound();
+                }
+                return Ok(departure);
+            }
+            logger.LogInformation("Bad request");
+            return BadRequest();
         }
 
         [HttpPut]
         public async Task<ActionResult> UpdateDeparture(Model.Departure departure)
         {
-            Boolean ok = await _db.UpdateDeparture(departure);
-            return Ok(ok);
+            if (ModelState.IsValid)
+            {
+                Boolean ok = await _db.UpdateDeparture(departure);
+                if (!ok)
+                {
+                    logger.LogInformation("Changes could not be made");
+                    return NotFound();
+                }
+                return Ok(ok);
+            }
+            logger.LogInformation("ModelState invalid");
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteDeparture(int id)
         {
             Boolean ok = await _db.DeleteDeparture(id);
+            if (!ok)
+            {
+                logger.LogInformation("Departure not deleted");
+                return NotFound();
+            }
             return Ok(ok);
         }
 
         [HttpPost]
         public async Task<ActionResult> RegisterRoute(Model.Departure departure)
         {
-            System.Diagnostics.Trace.WriteLine("Prøver å lagre rute");
-            Debug.WriteLine("Prøver å lagre rute");
-            Boolean ok = await _db.registerRoute(departure);
-            return Ok();
+            if(ModelState.IsValid)
+            {
+                Boolean ok = await _db.registerRoute(departure);
+                if (!ok)
+                {
+                    logger.LogInformation("Could not save departure");
+                    return BadRequest();
+                }
+                return Ok();
+            }
+            logger.LogInformation("Bad Request");
+            return BadRequest();
         }
         /*
         public async Task<ActionResult> LoggInn(Bruker bruker)

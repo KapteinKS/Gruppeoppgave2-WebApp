@@ -59,6 +59,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         {
             try
             {
+                Debug.WriteLine(departure.ID);
                 var toUpdate = await _db.Departures.FindAsync(departure.ID);
                 toUpdate.Dep_location = departure.Dep_location;
                 toUpdate.Arr_location = departure.Arr_location;
@@ -93,7 +94,6 @@ namespace Gruppeoppgave2_WebApp.DAL
         {
             try
             {
-                Debug.WriteLine("Begynner å lagre rute");
                 var dep = new Departures
                 {
                     Dep_location = departure.Dep_location,
@@ -102,10 +102,8 @@ namespace Gruppeoppgave2_WebApp.DAL
                     Arr_time = departure.Arr_time,
                     Price = departure.Price
                 };
-                Debug.WriteLine("Kaller DB");
                 _db.Departures.Add(dep);
                 await _db.SaveChangesAsync();
-                Debug.WriteLine("Rute lagret");
                 return true;
             }
             catch

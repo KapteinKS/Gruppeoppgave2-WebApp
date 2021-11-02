@@ -17,10 +17,12 @@ export class AdministrationComponent {
   public departures: Array<departure>;
   depToDelete: string;
   dep_form: FormGroup;
+  loading: boolean;
 
   constructor(private _http: HttpClient, private modalService: NgbModal, private router: Router) {}
 
   ngOnInit() {
+    this.loading = true;
     this.getAll();
   }
 
@@ -28,6 +30,7 @@ export class AdministrationComponent {
     this._http.get<departure[]>("api/Departure/")
       .subscribe(data => {
         this.departures = data;
+        this.loading = false;
       },
         error => alert("Noe gikk galt"),
         () => console.log("Get call finished")

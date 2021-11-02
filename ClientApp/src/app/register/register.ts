@@ -11,6 +11,7 @@ export class Register {
   dep_form: FormGroup;
 
   form = {
+    id: [""],
     departure_loc: [null],
     arrival_loc: [null],
     departure_time: [null],
@@ -27,11 +28,13 @@ export class Register {
 
   saveNewDeparture() {
     const saveDep = new departure();
+
     saveDep.dep_location = this.dep_form.value.departure_loc;
     saveDep.dep_time = this.dep_form.value.departure_time;
     saveDep.arr_location = this.dep_form.value.arrival_loc;
     saveDep.arr_time = this.dep_form.value.arrival_time;
     saveDep.price = this.dep_form.value.route_price;
+
     this._http.post("api/departure/", saveDep)
       .subscribe(
         retur => {
