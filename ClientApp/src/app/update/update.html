@@ -6,30 +6,45 @@
       <div class="form-group">
         <label>Avgang</label>
         <input class="form-control" formControlName="departure_loc" />
+        <p class="alert alert-warning" [hidden]="dep_form.controls.departure_loc.valid || (dep_form.controls.departure_loc.pristine && !submitted)">
+          Avgangssted er obligatorisk.
+        </p>
       </div>
 
       <div class="form-group">
         <label>Ankomst</label>
         <input class="form-control" formControlName="arrival_loc" />
+        <p class="alert alert-warning" [hidden]="dep_form.controls.arrival_loc.valid || (dep_form.controls.arrival_loc.pristine && !submitted)">
+          Ankomssted er obligatorisk.
+        </p>
       </div>
 
       <div class="form-group">
         <label>Avgangstid</label>
         <input class="form-control" formControlName="departure_time" type="time" />
+        <p class="alert alert-warning" [hidden]="dep_form.controls.departure_time.valid || (dep_form.controls.departure_time.pristine && !submitted)">
+          Avgangstid er obligatorisk.
+        </p>
       </div>
 
       <div class="form-group">
         <label>Ankomsttid</label>
         <input class="form-control" formControlName="arrival_time" type="time" />
+        <p class="alert alert-warning" [hidden]="dep_form.controls.arrival_time.valid || (dep_form.controls.arrival_time.pristine && !submitted)">
+          Ankomsttid er obligatorisk.
+        </p>
       </div>
 
       <div class="form-group">
         <label>Pris</label>
         <input class="form-control" type="number" min="100" formControlName="route_price" />
+        <p class="alert alert-warning" [hidden]="dep_form.controls.route_price.valid || (dep_form.controls.route_price.pristine && !submitted)">
+          Pris er obligatorisk.
+        </p>
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Lagre endringer</button>
+        <button type="submit" [disabled]="!dep_form.valid" class="btn btn-primary">Lagre endringer</button>
         <button class="btn btn-default" routerLink="/administration">Tilbake</button>
       </div>
     </form>

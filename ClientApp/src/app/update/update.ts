@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl, Validators } from "@angular/forms";
 import { departure } from "../departure";
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,11 +13,11 @@ export class Update {
 
   form = {
     id: [""],
-    departure_loc: [null],
-    arrival_loc: [null],
-    departure_time: [null],
-    arrival_time: [null],
-    route_price: [null]
+    departure_loc: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
+    arrival_loc: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
+    departure_time: [null, Validators.compose([Validators.required])],
+    arrival_time: [null, Validators.compose([Validators.required])],
+    route_price: [null, Validators.compose([Validators.required])]
   }
   constructor(private _http: HttpClient, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
     this.dep_form = fb.group(this.form);

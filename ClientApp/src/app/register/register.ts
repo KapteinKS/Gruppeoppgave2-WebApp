@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { departure } from "../departure";
 import { ActivatedRoute, Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 
 @Component({
   templateUrl: "register.html"
@@ -12,13 +12,17 @@ export class Register {
 
   form = {
     id: [""],
-    departure_loc: [null],
-    arrival_loc: [null],
-    departure_time: [null],
-    arrival_time: [null],
-    route_price: [null]
+    departure_loc: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
+    arrival_loc: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],
+    departure_time: [null, Validators.compose([Validators.required])],
+    arrival_time: [null, Validators.compose([Validators.required])],
+    route_price: [null, Validators.compose([Validators.required])]
   }
-  constructor(private _http: HttpClient, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
+  constructor(private _http: HttpClient,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private router: Router)
+  {
     this.dep_form = fb.group(this.form);
   }
 
