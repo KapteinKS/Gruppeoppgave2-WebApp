@@ -37,6 +37,13 @@ namespace Gruppeoppgave2_WebApp.DAL
         public string Arr_time { get; set; }
         public int Price { get; set; }
     }
+
+    public class User
+    {
+        public int UserID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
     public class TicketContext : DbContext
     {
         public TicketContext(DbContextOptions<TicketContext> options) : base(options)
