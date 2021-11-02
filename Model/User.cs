@@ -8,7 +8,7 @@ namespace Gruppeoppgave2_WebApp.Model
 {
     public class User
     {
-        private int ID { get; set; }
+        private int UserID { get; set; }
 
         //[RegularExpression()]
         private string Username { get; set; }
