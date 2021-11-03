@@ -174,9 +174,8 @@ namespace Gruppeoppgave2_WebApp.DAL
                 }
                 return false;
             }
-            catch (Exception e)
+            catch 
             {
-                //logger.LogInformation(e.Message);
                 return false;
             }
             
