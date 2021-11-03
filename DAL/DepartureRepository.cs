@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
+    [ExcludeFromCodeCoverage]
     public class DepartureRepository : IDepartureRepository
     {
         private readonly TicketContext _db;
@@ -63,15 +65,21 @@ namespace Gruppeoppgave2_WebApp.DAL
         {
             var departure = await _db.Departures.FindAsync(id);
 
-            return new Model.Departure
+            if (departure != null)
             {
-                ID = departure.DepID,
-                Dep_location = departure.Dep_location,
-                Arr_location = departure.Arr_location,
-                Dep_time = departure.Dep_time,
-                Arr_time = departure.Arr_time,
-                Price = departure.Price
-            };
+                return new Model.Departure
+                {
+                    ID = departure.DepID,
+                    Dep_location = departure.Dep_location,
+                    Arr_location = departure.Arr_location,
+                    Dep_time = departure.Dep_time,
+                    Arr_time = departure.Arr_time,
+                    Price = departure.Price
+                };
+            } else
+            {
+                return null;
+            }
         }
 
         public async Task<Boolean> UpdateDeparture(Model.Departure departure)
