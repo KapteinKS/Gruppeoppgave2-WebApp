@@ -109,6 +109,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
             return BadRequest();
         }
         
+        [HttpPost]
         public async Task<ActionResult> LogIn(Model.User user)
         {
             if (ModelState.IsValid)
