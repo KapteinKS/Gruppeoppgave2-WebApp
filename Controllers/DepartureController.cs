@@ -15,7 +15,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
     public class DepartureController : ControllerBase
     {
         private readonly IDepartureRepository _db;
-        private ILogger<DepartureController> logger;
+        private readonly ILogger<DepartureController> logger;
 
         //Session variable 
         /*
