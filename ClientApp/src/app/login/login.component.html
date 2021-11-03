@@ -1,6 +1,6 @@
-<h1>Login</h1>
 <div class="container">
-  <div class="col-md-4">
+  <div class="col-md-8">
+    <h1>Login</h1>
     <form [formGroup]="Skjema" (ngSubmit)="onSubmit()">
       <table class="form-group">
         <tr>
@@ -9,14 +9,12 @@
           </td>
           <td>
             <input class="form-group" type="text" formControlName="brukernavn" />
+          </td>
+          <td>
             <p class="alert alert-warning" [hidden]="Skjema.controls.brukernavn.valid || (Skjema.controls.brukernavn.pristine && !submitted)">
-              Ulovlig(e) karakter(er)
+              Ulovlig(e) karakter(er), eller tomt
             </p>
           </td>
-          <!--
-            <td *ngIf="this.Skjema.controls.brukernavn.status=='INVALID'">
-                Obligatorisk
-            </td>-->
         </tr>
         <tr>
           <td>
@@ -24,21 +22,19 @@
           </td>
           <td>
             <input class="form-group" type="password" formControlName="passord" />
+          </td>
+          <td>
             <p class="alert alert-warning" [hidden]="Skjema.controls.passord.valid || (Skjema.controls.passord.pristine && !submitted)">
               Passord mellom 6 og 15 siffer
             </p>
           </td>
-          <!--
-          <td *ngIf="this.Skjema.controls.passord.status=='INVALID'">
-              Mellom 6 og 15 siffer
-          </td>-->
         </tr>
         <tr>
           <td>
-            <button type="submit" [disabled]="!Skjema.valid">Register</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!Skjema.valid">Logg inn</button>
           </td>
         </tr>
       </table>
     </form>
   </div>
- </div>
+</div>

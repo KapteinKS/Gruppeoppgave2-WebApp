@@ -10,6 +10,16 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
 export class Register {
   dep_form: FormGroup;
 
+  ngOnInit() {
+    this._http.get("api/departure/Users")
+      .subscribe(retur => { console.log("ok") },
+        error => {
+          if (error.status == 401) {
+            this.router.navigate(['/login'])
+          }
+        }
+    )
+  }
   form = {
     id: [""],
     departure_loc: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-ZøæåØÆÅ\\-. ]{2,30}")])],

@@ -83,7 +83,9 @@ export class AdministrationComponent {
     });
   }
   logout() {
-    this._http.post("api/departure/logout", null);
-    this.router.navigate(['/login']);
+    this._http.post("api/departure/logout", null)
+      .subscribe(retur => {
+        this.router.navigate(['/login']);
+      });
   }
 }

@@ -3,9 +3,6 @@
     <thead>
       <tr>
         <td>
-         <button class="btn btn-primary" routerLink="/login" (click)="logout()">Registrer ny strekning</button>
-        </td>
-        <td>
           <h2>Avganger</h2>
         </td>
       </tr>
@@ -20,17 +17,19 @@
         <th></th>
       </tr>
     </thead>
-      <tr *ngFor="let dep of departures">
-        <td>{{dep.id}}</td>
-        <td>{{dep.dep_location}} </td>
-        <td>{{dep.arr_location}} </td>
-        <td>{{dep.dep_time}} </td>
-        <td>{{dep.arr_time}} </td>
-        <td>{{dep.price}}</td>
-        <td><button class="btn btn-primary" [routerLink]="['/update', dep.id]">Endre</button></td>
-        <td><button class="btn btn-danger" (click)="deleteDeparture(dep.id)">Slett</button></td>
-      </tr>
+    <tr *ngFor="let dep of departures">
+      <td>{{dep.id}}</td>
+      <td>{{dep.dep_location}} </td>
+      <td>{{dep.arr_location}} </td>
+      <td>{{dep.dep_time}} </td>
+      <td>{{dep.arr_time}} </td>
+      <td>{{dep.price}}</td>
+      <td><button class="btn btn-primary" [routerLink]="['/update', dep.id]">Endre</button></td>
+      <td><button class="btn btn-danger" (click)="deleteDeparture(dep.id)">Slett</button></td>
+    </tr>
   </table>
   <button class="btn btn-primary" routerLink="/register">Registrer ny strekning</button>
+  <button class="btn btn-primary" routerLink="/login" (click)="logout()">Logg ut</button>
+
 </div>
 
