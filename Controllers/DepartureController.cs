@@ -158,9 +158,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
 
         [HttpPost]
         [Route("Logout")]
-        public void LogOut()
+        public ActionResult LogOut()
         {
             HttpContext.Session.SetString(_loggetInn, "");
+            return Ok();
         }
     }
 }
