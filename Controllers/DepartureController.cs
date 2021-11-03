@@ -109,7 +109,7 @@ namespace Gruppeoppgave2_WebApp.Controllers
             return BadRequest();
         }
         
-        public async Task<ActionResult> LogIn(User user)
+        public async Task<ActionResult> LogIn(Model.User user)
         {
             if (ModelState.IsValid)
             {
@@ -125,14 +125,14 @@ namespace Gruppeoppgave2_WebApp.Controllers
             return BadRequest("Error in inputvalidation on server");
         }
 
-        var user1 = new User();
-        user1.Username = "Admin";
-        string Password = "admin";
-        byte[] salt = DepartureRepository.CreateSalt();
-        byte[] hash = DepartureRepository.CreateHash(Password, salt);
-        user1.Password = hash;
-        user1.Salt = salt;
-        _db.User.Add(user1);
-        _db.SaveChanges();
+        //var user1 = new Model.User();
+        //user1.Username = "Admin";
+        //string Password = "admin";
+        //byte[] salt = DepartureRepository.CreateSalt();
+        //byte[] hash = DepartureRepository.CreateHash(Password, salt);
+        //user1.Password = hash;
+        //user1.Salt = salt;
+        //_db.User.Add(user1);
+        //_db.SaveChanges();
     }
 }

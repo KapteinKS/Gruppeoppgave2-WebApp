@@ -14,7 +14,7 @@ namespace Gruppeoppgave2_WebApp.Model
 
         [RegularExpression(@"[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
         public string Username { get; set; }
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
-        public string Password { get; set; }
+        //[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
+        public byte[] Password { get; set; }
     }
 }

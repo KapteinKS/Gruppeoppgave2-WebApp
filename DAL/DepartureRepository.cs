@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
 
 namespace Gruppeoppgave2_WebApp.DAL
 {
@@ -157,6 +159,7 @@ namespace Gruppeoppgave2_WebApp.DAL
             return salt;
         }
 
+        /*
         public async Task<bool> LogIn(User user)
         {
             try
@@ -172,10 +175,11 @@ namespace Gruppeoppgave2_WebApp.DAL
             }
             catch (Exception e)
             {
-                logger.LogInformation(e.Message);
+                //logger.LogInformation(e.Message);
                 return false;
             }
         }
+        */
     }
 }
     

@@ -39,6 +39,21 @@ namespace Gruppeoppgave2_WebApp.DAL
                     Price = 256
                 };
 
+
+
+                var user1 = new User
+                {
+                    Username = "Admin",
+           
+                };
+
+                string noHashPw = "admin";
+                byte[] salt = DepartureRepository.CreateSalt();
+                byte[] hashedPw = DepartureRepository.CreateHash(noHashPw, salt);
+
+                user1.Password = hashedPw;
+                Console.WriteLine(user1.Password);
+
                 context.Add(departure1);
                 context.Add(departure2);
                 //context.Add(user1);
