@@ -2,13 +2,13 @@
 
 <div>
     <form [formGroup]="Skjema" (ngSubmit)="onSubmit()">
-        <table>
+        <table class="form-group">
             <tr>
                 <td>
                     <label>Brukernavn: </label>
                 </td>
                 <td>
-                    <input type="text" formControlName="brukernavn" />
+                    <input class="form-group" type="text" formControlName="brukernavn" />
                 </td>
                 <td *ngIf="this.Skjema.controls.brukernavn.status=='INVALID'">
                     Obligatorisk
@@ -19,7 +19,7 @@
                     <label>Passord: </label>
                 </td>
                 <td>
-                    <input type="password" formControlName="passord" />
+                    <input class="form-group" type="password" formControlName="passord" />
                 </td>
                 <td *ngIf="this.Skjema.controls.passord.status=='INVALID'">
                     Mellom 6 og 15 siffer

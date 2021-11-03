@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Modal } from './modal';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'
+import { User } from 'oidc-client';
 
 @Component({
   //selector: 'router-outlet',
@@ -24,6 +25,12 @@ export class AdministrationComponent {
   ngOnInit() {
     this.loading = true;
     this.getAll();
+  }
+
+  //Note to do this when i wake up. -K
+  getUsers() {
+    this._http.get<User[]>("api/Users/")
+      .subscribe()
   }
 
   getAll() {
