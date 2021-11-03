@@ -31,7 +31,7 @@ namespace Gruppeoppgave2_WebApp.DAL
                 {
                     UserID = u.UserID,
                     Username = u.Username,
-                    Password = u.Password
+                    Password = System.Text.Encoding.Default.GetString(u.Password) 
 
                 }).ToListAsync();
                 return users;
@@ -166,8 +166,7 @@ namespace Gruppeoppgave2_WebApp.DAL
             try
             {
                 var foundUser = await _db.Users.FirstOrDefaultAsync(b => b.Username == user.Username);
-                string password = System.Text.Encoding.Default.GetString(user.Password);
-                byte[] hash = CreateHash(password, foundUser.Salt);
+                byte[] hash = CreateHash(user.Password, foundUser.Salt);
                 bool ok = hash.SequenceEqual(foundUser.Password);
                 if (ok)
                 {

@@ -34,7 +34,7 @@ export class AdministrationComponent {
   }
 
   getAll() {
-    this._http.get<departure[]>("api/Departure/")
+    this._http.get<departure[]>("api/Departure/Departures")
       .subscribe(data => {
         this.departures = data;
         this.loading = false;

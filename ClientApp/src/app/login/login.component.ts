@@ -14,18 +14,20 @@ export class LoginComponent {
 
   Skjema: FormGroup;
 
+  form = {
+    brukernavn: [null, Validators.compose([Validators.required])],
+    passord: [null, Validators.compose([Validators.required, Validators.pattern("[a-zA-Z0-9]{6,15}")])]
+  };
+
   constructor(private _http: HttpClient, private fb: FormBuilder, private router: Router) {
-    this.Skjema = fb.group({
-      brukernavn: ["", Validators.required],
-      passord: ["", Validators.pattern("[0-9]{6,15}")]
-    });
+    this.Skjema = fb.group(this.form);
   }
 
   onSubmit() {
     console.log("Modellbasert skjema submitted");
-    console.log(this.Skjema);
-    console.log(this.Skjema.value.brukernavn);
-    console.log(this.Skjema.touched);
+    //console.log(this.Skjema);
+    //console.log(this.Skjema.value.brukernavn);
+    //console.log(this.Skjema.touched);
     this.logIn();
   }
 
@@ -34,12 +36,19 @@ export class LoginComponent {
   }
 
   logIn() {
-    var user = new User(); 
+    var user = new User();
     user.username = this.Skjema.value.brukernavn;
     user.password = this.Skjema.value.passord;
-    this._http.post("api/departure/", user)
+    this._http.post("api/departure/Login", user)
       .subscribe(retur => {
-        this.router.navigate(['/administration']);
-      })
-  }
+        if (retur) {
+          this.router.navigate(['/administration']);
+        }
+        else {
+          alert("Feil brukernavn eller passord");
+        }
+      },
+        error => console.log(error)
+      );
+  };
 }

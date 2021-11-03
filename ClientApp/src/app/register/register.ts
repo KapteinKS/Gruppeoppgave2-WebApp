@@ -39,7 +39,7 @@ export class Register {
     saveDep.arr_time = this.dep_form.value.arrival_time;
     saveDep.price = this.dep_form.value.route_price;
 
-    this._http.post("api/departure/", saveDep)
+    this._http.post("api/departure/New", saveDep)
       .subscribe(
         retur => {
           this.router.navigate(['/administration']);
