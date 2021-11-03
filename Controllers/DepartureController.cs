@@ -21,8 +21,6 @@ namespace Gruppeoppgave2_WebApp.Controllers
         //Session variable 
         private const string _loggetInn = "loggetInn";
         
-        
-
         public DepartureController(IDepartureRepository db, ILogger<DepartureController> logger)
         {
             this.logger = logger;
