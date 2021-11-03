@@ -12,5 +12,6 @@ namespace Gruppeoppgave2_WebApp.DAL
         Task<bool> UpdateDeparture(Model.Departure departure);
         Task<bool> DeleteDeparture(int id);
         Task<bool> RegisterRoute(Model.Departure departure);
+        Task<bool> LogIn(Model.User user);
     }
 }

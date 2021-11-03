@@ -159,9 +159,10 @@ namespace Gruppeoppgave2_WebApp.DAL
             return salt;
         }
 
-        /*
-        public async Task<bool> LogIn(User user)
+        
+        public async Task<bool> LogIn(Model.User user)
         {
+            
             try
             {
                 User foundUser = await _db.User.FirstOrDefaultAsync(b => b.Username == user.Username);
@@ -178,8 +179,9 @@ namespace Gruppeoppgave2_WebApp.DAL
                 //logger.LogInformation(e.Message);
                 return false;
             }
+            
         }
-        */
+        
     }
 }
     
