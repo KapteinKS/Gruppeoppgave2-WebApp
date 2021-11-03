@@ -108,11 +108,31 @@ namespace Gruppeoppgave2_WebApp.Controllers
             logger.LogInformation("Bad Request");
             return BadRequest();
         }
-        /*
-        public async Task<ActionResult> LoggInn(Bruker bruker)
+        
+        public async Task<ActionResult> LogIn(User user)
         {
-            
+            if (ModelState.IsValid)
+            {
+                bool returnOK = await _db.LogIn(user);
+                if (!returnOK)
+                {
+                    logger.LogInformation("Login error for user: " + user.Username);
+                    return Ok(false);
+                }
+                return Ok(true);
+            }
+            logger.LogInformation("Error in inputvalidation");
+            return BadRequest("Error in inputvalidation on server");
         }
-        */
+
+        var user1 = new User();
+        user1.Username = "Admin";
+        string Password = "admin";
+        byte[] salt = DepartureRepository.CreateSalt();
+        byte[] hash = DepartureRepository.CreateHash(Password, salt);
+        user1.Password = hash;
+        user1.Salt = salt;
+        _db.User.Add(user1);
+        _db.SaveChanges();
     }
 }

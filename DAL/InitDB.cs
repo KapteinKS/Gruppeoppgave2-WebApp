@@ -39,12 +39,6 @@ namespace Gruppeoppgave2_WebApp.DAL
                     Price = 256
                 };
 
-                var user1 = new User
-                {
-                    Username = "Admin",
-                    Password = "admin"
-                };
-
                 context.Add(departure1);
                 context.Add(departure2);
                 //context.Add(user1);
