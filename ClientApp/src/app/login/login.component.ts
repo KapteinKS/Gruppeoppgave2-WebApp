@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../user';
@@ -29,10 +29,6 @@ export class LoginComponent {
     //console.log(this.Skjema.value.brukernavn);
     //console.log(this.Skjema.touched);
     this.logIn();
-  }
-
-  ngOnInit() {
-
   }
 
   logIn() {

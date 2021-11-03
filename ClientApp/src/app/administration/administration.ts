@@ -39,7 +39,11 @@ export class AdministrationComponent {
         this.departures = data;
         this.loading = false;
       },
-        error => alert("Noe gikk galt"),
+        error => {
+          if (error.status == 401) {
+            this.router.navigate(['/login'])
+          }
+        },
         () => console.log("Get call finished")
       );
   };
@@ -77,5 +81,9 @@ export class AdministrationComponent {
       }
       this.router.navigate(['/amdinistration'])
     });
+  }
+  logout() {
+    this._http.post("api/departure/logout", null);
+    this.router.navigate(['/login']);
   }
 }

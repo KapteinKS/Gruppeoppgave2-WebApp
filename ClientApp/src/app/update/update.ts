@@ -43,7 +43,12 @@ export class Update {
           this.dep_form.patchValue({ arrival_time: dep.arr_time });
           this.dep_form.patchValue({ route_price: dep.price });
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          if(error.status == 401) {
+            this.router.navigate(['/login'])
+          }
+        }
       );
   };
 
@@ -61,7 +66,12 @@ export class Update {
         retur => {
           this.router.navigate(['/administration']);
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          if (error.status == 401) {
+            this.router.navigate(['/login'])
+          }
+        }
       );
   }
 }

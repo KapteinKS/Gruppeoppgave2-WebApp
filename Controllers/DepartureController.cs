@@ -7,6 +7,7 @@ using Gruppeoppgave2_WebApp.DAL;
 using Gruppeoppgave2_WebApp.Model;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 
 namespace Gruppeoppgave2_WebApp.Controllers
 { 
@@ -18,9 +19,8 @@ namespace Gruppeoppgave2_WebApp.Controllers
         private readonly ILogger<DepartureController> logger;
 
         //Session variable 
-        /*
         private const string _loggetInn = "loggetInn";
-        */
+        
         
 
         public DepartureController(IDepartureRepository db, ILogger<DepartureController> logger)
@@ -33,6 +33,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [Route("Users")]
         public async Task<ActionResult> GetUsers()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             List<Model.User> users = await _db.GetUsers();
             return Ok(users);
         }
@@ -41,6 +45,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [Route("Departures")]
         public async Task<ActionResult> GetDepartures()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             List<Model.Departure> departures = await _db.GetDepartures();
             return Ok(departures);
         }
@@ -48,6 +56,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetDeparture(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             if (ModelState.IsValid)
             {
                 Model.Departure departure = await _db.GetDeparture(id);
@@ -65,6 +77,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateDeparture(Model.Departure departure)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             if (ModelState.IsValid)
             {
                 Boolean ok = await _db.UpdateDeparture(departure);
@@ -83,6 +99,10 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteDeparture(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             Boolean ok = await _db.DeleteDeparture(id);
             if (!ok)
             {
@@ -97,7 +117,11 @@ namespace Gruppeoppgave2_WebApp.Controllers
         [Route("New")]
         public async Task<ActionResult> RegisterRoute(Model.Departure departure)
         {
-            if(ModelState.IsValid)
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+            if (ModelState.IsValid)
             {
                 Boolean ok = await _db.RegisterRoute(departure);
                 if (!ok)
@@ -122,12 +146,21 @@ namespace Gruppeoppgave2_WebApp.Controllers
                 if (!returnOK)
                 {
                     logger.LogInformation("Login error for user: " + user.Username);
+                    HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }
+                HttpContext.Session.SetString(_loggetInn, "LoggetInn");
                 return Ok(true);
             }
             logger.LogInformation("Error in inputvalidation");
             return BadRequest("Error in inputvalidation on server");
+        }
+
+        [HttpPost]
+        [Route("Logout")]
+        public void LogOut()
+        {
+            HttpContext.Session.SetString(_loggetInn, "");
         }
     }
 }
