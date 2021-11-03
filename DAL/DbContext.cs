@@ -49,6 +49,8 @@ namespace Gruppeoppgave2_WebApp.DAL
         public int UserID { get; set; }
         public string Username { get; set; }
         public byte[] Password { get; set; }
+
+        public byte[] Salt { get; set; }
     }
 
     [ExcludeFromCodeCoverage]

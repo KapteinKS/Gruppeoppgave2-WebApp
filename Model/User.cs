@@ -16,5 +16,6 @@ namespace Gruppeoppgave2_WebApp.Model
         public string Username { get; set; }
         //[RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$")]
         public byte[] Password { get; set; }
+        public byte[] Salt { get; set; }
     }
 }

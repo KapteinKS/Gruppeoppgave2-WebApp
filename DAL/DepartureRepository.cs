@@ -165,7 +165,7 @@ namespace Gruppeoppgave2_WebApp.DAL
             
             try
             {
-                User foundUser = await _db.User.FirstOrDefaultAsync(b => b.Username == user.Username);
+                var foundUser = await _db.Users.FirstOrDefaultAsync(b => b.Username == user.Username);
                 byte[] hash = CreateHash(user.Password, foundUser.Salt);
                 bool ok = hash.SequenceEqual(foundUser.Password);
                 if (ok)
