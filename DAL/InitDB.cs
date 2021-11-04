@@ -16,7 +16,7 @@ namespace Gruppeoppgave2_WebApp.DAL
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<TicketContext>();
+                var context = serviceScope.ServiceProvider.GetService<DepartureContext>();
 
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();

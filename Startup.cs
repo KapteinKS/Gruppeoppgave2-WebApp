@@ -27,7 +27,7 @@ namespace Gruppeoppgave2_WebApp
         {
             services.AddControllers();
 
-            services.AddDbContext<TicketContext>(options => options.UseSqlite("Data Source=Departures.db"));
+            services.AddDbContext<DepartureContext>(options => options.UseSqlite("Data Source=Departures.db"));
 
             services.AddScoped<IDepartureRepository, DepartureRepository>();
 

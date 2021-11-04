@@ -6,31 +6,6 @@ using Microsoft.EntityFrameworkCore;
 namespace Gruppeoppgave2_WebApp.DAL
 {
     [ExcludeFromCodeCoverage]
-    public class Customer
-    {
-        [Key]
-        public int CustomerID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-
-        public virtual List<Order> Orders { get; set; }
-    }
-
-    [ExcludeFromCodeCoverage]
-    public class Order
-    {
-        [Key]
-        public int OrderID { get; set; }
-        public string Route { get; set; }
-        public string LeaveDate { get; set; }
-        public string HomeDate { get; set; }
-        public int Price { get; set; }
-        public int Passengers { get; set; }
-    }
-
-    [ExcludeFromCodeCoverage]
     public class Departures
     {
         [Key]
@@ -54,14 +29,12 @@ namespace Gruppeoppgave2_WebApp.DAL
     }
 
     [ExcludeFromCodeCoverage]
-    public class TicketContext : DbContext
+    public class DepartureContext : DbContext
     {
-        public TicketContext(DbContextOptions<TicketContext> options) : base(options)
+        public DepartureContext(DbContextOptions<DepartureContext> options) : base(options)
         {
             Database.EnsureCreated();
         }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Departures> Departures { get; set; }
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

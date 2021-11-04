@@ -15,9 +15,9 @@ namespace Gruppeoppgave2_WebApp.DAL
     [ExcludeFromCodeCoverage]
     public class DepartureRepository : IDepartureRepository
     {
-        private readonly TicketContext _db;
+        private readonly DepartureContext _db;
 
-        public DepartureRepository(TicketContext db)
+        public DepartureRepository(DepartureContext db)
         {
             _db = db;
         }
