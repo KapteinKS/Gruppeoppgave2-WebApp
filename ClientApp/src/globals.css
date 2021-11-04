@@ -13,21 +13,17 @@
 }
 
 .nav {
-  background-color: #2286C3;
+  background-color: #007bff;
   height: 100px;
   width: auto;
-  /*margin: 20px 20px 0px 20px;*/
   border-radius: 0px 0px 10px 10px;
 }
 
 .nav-button {
-  background-color: #06BA63;
   width: 150px;
   height: 60px;
   font-size: 20px;
   margin: 20px 0px 20px 20px;
-  border: 1px solid #2B303A;
-  border-radius: 10px;
 }
 
 #route-administration{

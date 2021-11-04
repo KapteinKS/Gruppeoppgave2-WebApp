@@ -9,3 +9,6 @@
 2021-11-04T13:35:48.1622545+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
 2021-11-04T13:35:48.1744593+01:00  [INF] Hosting environment: "Development" (c3307c92)
 2021-11-04T13:35:48.1778498+01:00  [INF] Content root path: "C:\Users\Ruui\Documents\GitHub\Gruppeoppgave2-WebApp" (b5d60022)
+2021-11-04T13:50:59.0949097+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T13:50:59.1013137+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T13:50:59.1026262+01:00  [INF] Content root path: "C:\Users\Ruui\Documents\GitHub\Gruppeoppgave2-WebApp" (b5d60022)
