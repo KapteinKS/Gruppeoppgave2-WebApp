@@ -20,10 +20,28 @@
 }
 
 .nav-button {
-  width: 150px;
+  width: 160px;
   height: 60px;
   font-size: 20px;
   margin: 20px 0px 20px 20px;
+}
+
+h1{
+    padding-top: 10px;
+}
+
+.login_alerts {
+  font-size: 16px;
+  margin-left: 10px;
+  padding: 0px 10px 0px 10px;
+  background-color: #ffc107;
+  border-radius: 5px;
+}
+
+.login_label{
+    font-size: 20px;
+    padding-bottom: 5px;
+    padding-right: 20px;
 }
 
 #route-administration{

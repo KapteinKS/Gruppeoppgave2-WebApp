@@ -5,26 +5,26 @@
       <table class="form-group">
         <tr>
           <td>
-            <label>Brukernavn: </label>
+            <label class="login_label">Brukernavn: </label>
           </td>
           <td>
-            <input class="form-group" type="text" formControlName="brukernavn" />
+            <input class="form-group login_inputs" type="text" formControlName="brukernavn" />
           </td>
           <td>
-            <p class="alert alert-warning" [hidden]="Skjema.controls.brukernavn.valid || (Skjema.controls.brukernavn.pristine && !submitted)">
+            <p class="login_alerts" [hidden]="Skjema.controls.brukernavn.valid || (Skjema.controls.brukernavn.pristine && !submitted)">
               Ulovlig(e) karakter(er), eller tomt
             </p>
           </td>
         </tr>
         <tr>
           <td>
-            <label>Passord: </label>
+            <label class="login_label">Passord: </label>
           </td>
           <td>
-            <input class="form-group" type="password" formControlName="passord" />
+            <input class="form-group login_inputs" type="password" formControlName="passord" />
           </td>
           <td>
-            <p class="alert alert-warning" [hidden]="Skjema.controls.passord.valid || (Skjema.controls.passord.pristine && !submitted)">
+            <p class="login_alerts" [hidden]="Skjema.controls.passord.valid || (Skjema.controls.passord.pristine && !submitted)">
               Passord mellom 6 og 15 siffer
             </p>
           </td>
